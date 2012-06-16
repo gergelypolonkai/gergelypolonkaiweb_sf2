@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict/EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Gergely Polonkai{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/front.css') }}" media="screen" />
+	</head>
+	<body>
+		<div id="content-wrapper">
+			<div id="header">
+				<h1>Gergely Polonkai</h1>
+				<h2>developer, systems engineer and administrator</h2>
+			</div>
+			<div id="content">
+{% block content %}{% endblock content %}
+			</div>
+		</div>
+		<div id="bottombar-wrapper">
+			<div id="bottombar-padding"></div>
+			<div id="bottombar"{% if app.environment == 'dev' %} style="bottom: 40px;"{% endif %}>
+				:: Copyright &copy; 2012, Gergely Polonkai :: <a href="{{ path('GergelyPolonkaiFrontBundle_disclaimer') }}">Disclaimer</a> ::
+			</div>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,7 @@
+GergelyPolonkaiFrontBundle_homepage:
+        pattern:  /
+        defaults: { _controller: GergelyPolonkaiFrontBundle:Default:homepage }
+
+GergelyPolonkaiFrontBundle_disclaimer:
+        pattern:  /disclaimer.html
+        defaults: { _controller: GergelyPolonkaiFrontBundle:Default:disclaimer }

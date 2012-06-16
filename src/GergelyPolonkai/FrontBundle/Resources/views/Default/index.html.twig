@@ -1,0 +1,7 @@
+{% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+{% block content %}
+<h3>Wordpress madness</h3>
+<p class="article-date">14 June, 2012 :: 08:40 by Gergely Polonkai</p>
+<p>I'm a bit fed up that I had to install <a href="http://www.mysql.com/">MySQL</a> on my server to have <a href="http://wordpress.org/">Wordpress</a> working, so I've Googled a bit to find a solution for my pain. I found this: <a href="http://codex.wordpress.org/Using_Alternative_Databases">http://codex.wordpress.org/Using_Alternative_Databases</a>. I don't know when this post was written, but I think it's a bit out of date. I mean come on, PDO is the part of PHP for ages now, and they say adding a DBAL to the dependencies would be a project as large as (or larger than) WP itself. Well, yes, but PHP is already a dependency, isn't it? Remove it guys, it's too large!</p>
+<p>Okay, to be serious... Having a heavily MySQL dependent codebase is a bad thing in my opinion, and changing it is no easy task. But once it is done, it would be a child's play to keep it up to date, and to port WP to other database backends. And it would be more than enough to call it 4.0, and raising version numbers fast is a must nowadays (right, Firefox and Linux Kernel guys?)</p>
+{% endblock content %}
