@@ -5,3 +5,9 @@ GergelyPolonkaiFrontBundle_homepage:
 GergelyPolonkaiFrontBundle_disclaimer:
         pattern:  /disclaimer.html
         defaults: { _controller: GergelyPolonkaiFrontBundle:Default:disclaimer }
+
+GergelyPolonkaiFrontBundle_resume:
+        pattern:  /resume.{_format}
+        defaults: { _controller: GergelyPolonkaiFrontBundle:Default:resume }
+        requirements:
+                _format: html|pdf

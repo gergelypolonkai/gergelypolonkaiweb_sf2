@@ -1,0 +1,158 @@
+{% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+{% block title %} - Disclaimer{% endblock %}
+{% block content %}
+<h3>Resume</h3>
+<h4>Personal information</h4>
+<dl>
+	<dt>Name</dt>
+	<dd>Gergely Polonkai</dd>
+
+	<dt>Birth date</dt>
+	<dd>7 March, 1983</dd>
+
+	<dt>Address</dt>
+	<dd>
+		23 Dembinszky str.<br />
+		Budapest<br />
+		H-1071
+	</dd>
+
+	<dt>Marital status</dt>
+	<dd>single</dd>
+
+	<dt>Phone number</dt>
+	<dd>+36 (30) 737-5706</dd>
+
+	<dt>E-mail</dt>
+	<dd><a href="mailto:gergely{% if format == 'pdf' %}@{% else %}-[-at-]-{% endif %}polonkai.eu">gergely{% if format == 'pdf' %}@{% else %}<span class="at-obfuscation"></span>{% endif %}polonkai.eu</a></dd>
+</dl>
+<h4>Qualification</h4>
+<dl>
+	<dt>2002-2004</dt>
+	<dd>
+		University of Veszprém, Székesfehér<br />
+		Informatics engineer assistant (Hungarian "OKJ", didn't finish)
+	</dd>
+
+	<dt>1997-2001</dt>
+	<dd>
+		Táncsics Mihály Szakközépiskola, Szakiskola és Kollégium, Veszprém<br />
+		Building technician (leaving certificate only)
+	</dd>
+</dl>
+<h4>Workplaces</h4>
+<dl>
+	<dt>September, 2010 -</dt>
+	<dd>
+		Brokernet Group Zrt. / B-Logic Kft.<br />
+		systems engineering<br />
+		Contact: András Kajli<br />
+		+36 (30) 737-5702<br />
+		<p>Debian GNU/Linux servers (standalone and Heartbeat2 clusters), Apache web server, Exim4/Courier based mail system, Bacula based backup, MySQL, PostgreSQL, Oracle Database 10g/11g, Microsoft SQL Server 2005 and 2008, Windows 2003 Server and Windows Server 2008 (standalone and clusters), Active Directory, Group Policy, centralised ESET NOD32 antivirus, Windows cluster based file server with AD backend, WSUS, OTRS::ITSM helpdesk, Nagios and Zabbix based monitoring, virtualization with Citrix XenServer, IT security solutions with SonicWall appliances, Microsoft ForeFront, SELinux, Snort and iptables, PHP and Perl based development</p>
+	</dd>
+
+	<dt>December, 2007 - March, 2010</dt>
+	<dd>
+		Lufthansa Systems Hungary<br />
+		systems administrator<br />
+		Contact: László Kiss-Kalló<br />
+		+36 (30) 429-9483<br />
+		<p>Red Hat Enterprise Linux and SUSE Linux Enterprise Server based servers (standalone and Heartbeat2 clusters), SAN, iSCSI and NFS based storages, Apache httpd and tomcat web servers, MySQL and Oracle 10g Databases, Bacula based backup, Windows 2003 Server and Windows Server 2008 (standalone and clusters), Active Directory, Group Policy, Exchange Server 2005, Microsoft SQL Server 2005, open source Xen virtualization, Citrix XenServer and XenApp, VMware ESXi and vSphere, Nagios monitoring, Linux hardening project (SELinux, firewalls of different kinds, fighting application security issues)</p>
+	</dd>
+
+	<dt>November, 2006 - August, 2007</dt>
+	<dd>
+		eWorldCom Kft.<br />
+		system developer, systems administrator<br />
+		Contact: N/A, as the company no longer exists<br />
+		<p>Creating a Gentoo Linux based system for the VoIP server solution developed by the company</p>
+	</dd>
+
+	<dt>March, 2004 - July, 2006</dt>
+	<dd>
+		Webvilág Kft.<br />
+		web programmer, systems administrator, project manager<br />
+		Contact: Péter Bali<br />
+		+36 (30) 318-4050<br />
+		<p>PHP and MySQL based web pages, Debian GNU/Linux based web servers and firewall</p>
+	</dd>
+
+	<dt>June, 2002 - October, 2003</dt>
+	<dd>
+		GaTeS Group Kft.<br />
+		systems administrator, web programmer<br />
+		Contact: N/A, as the company no longer exists<br />
+		<p>Debian GNU/Linux based gateway (iptables, QoS with tc), PHP and MySQL based web page</p>
+	</dd>
+
+	<dt>January, 1998 - October, 2000</dt>
+	<dd>
+		Táncsics Mihály Szakközépiskola, Szakiskola és Kollégium, Veszprém<br />
+		systems administrator (part time, as a student)<br />
+		Contact: Imre Pataki<br />
+		+36 (20) 970-5830<br />
+		<p>Debian GNU/Linux based servers, Squid proxy, Apache web server, Exim4 and Courier based e-mail server, Samba file server</p>
+	</dd>
+</dl>
+<h4>Observations</h4>
+<ul>
+	<li>Network building and administration: rebuilding the whole network of a secondary school between 1999 and 2000 (mainly migrating from BNC to UTP). Modernizing the computers in 2001, changing servers from Windows NT4 to Linux, installing Windows 98 and Windows XP Professional.</li>
+	<li>System maintenance</li>
+	<li>Server monitoring with MRTG, Nagios and Zabbix</li>
+	<li>Windows based client administration (Windows 98, Windows XP and Windows 7)</li>
+	<li>Continuous client and server upgrading</li>
+	<li>Maintenance of an own server (Debian GNU/Linux, Gentoo Linux, Red Hat Linux 6.2)</li>
+	<li>Webpage creation and maintenance (HTML, PHP with Symfony 2 framework)</li>
+	<li>Database engineering and administration (MySQL and PostgreSQL)</li>
+	<li>Writing software as a hobby (BASIC, Pascal, C/C++ (specialized myself in client/server applications), Linux based applications using GTK+ and GLib</li>
+</ul>
+<h4>References</h4>
+<p>I made the whole or parts of the following web pages:</p>
+<ul>
+	<li>
+		<a href="http://www.bosch.hu/" target="_blank">www.bosch.hu</a><br />
+		Continuous corrections, small developments and updates
+	</li>
+	<li>
+		www.csincsilla.info<br />
+		I wrote the old web engine in pure PHP with a PostgreSQL database backend. Since then, the site was migrated to a CMS solution.
+	</li>
+	<li>
+		<a href="http://www.wicca.hu/" target="_blank">www.wicca.hu</a><br />
+		I wrote the whole web engine in pure PHP with PostgreSQL database backend. Also contains a backend system, hidden from the public. Parts of the engine is now rewritten by someone else, but I still have the old code.
+	</li>
+	<li>
+		<a href="http://www.idvez.hu/" target="_blank">www.idvez.hu</a><br />
+		I wrote the whole engine in pure PHP with a MySQL database backend. Contains an administration backend hidden from the public.
+	</li>
+	<li>
+		<a href="http://www.platea.hu/" target="_blank">www.platea.hu</a><br />
+		Ported the frontend engine from JBoss AS to PHP. Contact: Péter Fröhlich, +36 (30) 737-4955
+	</li>
+	<li>
+		"Orphaned contract manager" web based system for Brokernet Group Zrt. Written in PHP using the Symfony 2 framework and a MySQL database backend. Contact: Gábor Vida, +36 (30) 929-9340
+	</li>
+	<li>
+		Web based HR database program for Work Centrum Magyarország Kft. written in pure PHP with a MySQL database backend. Ran on a Windows Server environment. Contact: Krisztina Kocsis, +36 (20) 967-0661
+	</li>
+</ul>
+<h4>Aquities</h4>
+<p>Quickness, self-training, interests in the news of my profession, quick recognition, creativity, reliability, open mind, thorough work in a team or on my own</p>
+<p>I easily make myself out in program code written by someone else, and I can work with such effectively.</p>
+<h4>Skills</h4>
+<dl>
+	<dt>Languages</dt>
+	<dd>English "A" and "B" certificate. Writing and speaking english fluently</dd>
+
+	<dt>Computer knowledge</dt>
+	<dd>
+		DOS, Windows, Linux, applications of Microsoft Office and LibreOffice, Programming in PHP, Perl, C and Bash, database management using MySQL and PostgreSQL, HTML, XML, C/C++, OpenLDAP, GIMP, QuarkXPress, VoIP, Citrix XenServer and XenApp based virtualization, Linux and BSD based security, SELinux.<br />
+		Learning the basics of any applications in 5-7 days.
+	</dd>
+</dl>
+<h4>Abilities</h4>
+<p>My friends know me as a tough, intelligent and agile man. I learn fast and easily. I have good communication skills. I am an open minded person. I do my work with full attention.</p>
+<h4>Ambitions</h4>
+<p>I like to work for firms which can develop my skills and can give me financial stability and an interesting job.</p>
+<div id="page-disclaimer">You can download the latest version of my resume at <a href="{{ app.request.uri }}">{{ app.request.uri }}</a>.</div>
+{% endblock content %}
