@@ -43,3 +43,9 @@
 [submodule "vendor/bundles/Symfony/Bundle/AsseticBundle"]
 	path = vendor/bundles/Symfony/Bundle/AsseticBundle
 	url = http://github.com/symfony/AsseticBundle.git
+[submodule "vendor/tcpdf"]
+	path = vendor/tcpdf
+	url = git://tcpdf.git.sourceforge.net/gitroot/tcpdf/tcpdf
+[submodule "vendor/bundles/Io/TcpdfBundle"]
+	path = vendor/bundles/Io/TcpdfBundle
+	url = git://github.com/ioalessio/IoTcpdfBundle.git
