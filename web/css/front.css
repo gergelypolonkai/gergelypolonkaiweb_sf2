@@ -19,6 +19,8 @@ body {
 	height: 120px;
 	background-color: #4d4d4d;
 	color: #ffffff;
+	position: absolute;
+	width: 960px;
 }
 
 #header h1 {
@@ -29,6 +31,11 @@ body {
 	padding-top: 45px;
 }
 
+#header h1 a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
 #header h2 {
 	text-align: right;
 	margin: 0 10px 0 0;
@@ -37,8 +44,22 @@ body {
 	padding-top: 5px;
 }
 
+#contact-list {
+	position: absolute;
+	right: -22px;
+	width: 20px;
+}
+
+#contact-list a {
+	display: block;
+}
+
 #content {
 	padding: 8px;
+}
+
+#content-padding {
+	height: 120px;
 }
 
 #content h3 {

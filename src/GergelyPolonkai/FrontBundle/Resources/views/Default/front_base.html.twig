@@ -9,10 +9,23 @@
 	<body>
 		<div id="content-wrapper">
 			<div id="header">
-				<h1>Gergely Polonkai</h1>
+				<h1><a href="{{ path('GergelyPolonkaiFrontBundle_homepage') }}">Gergely Polonkai</a></h1>
 				<h2>developer, systems engineer and administrator</h2>
+				<div id="contact-list">
+					<a href="mailto:gergely@polonkai.eu" target="_blank"><img src="{{ asset('images/email_16.png') }}" alt="E-mail" /></a>
+					<a href="http://www.linkedin.com/in/gergelypolonkai" target="_blank"><img src="{{ asset('images/linkedin_16.png') }}" alt="LinkedIn profile" /></a>
+					<a href="skype:w00dhun" target="_blank"><img src="{{ asset('images/skype_16.png') }}" alt="Skype" /></a>
+					<a href="http://facebook.com/Polesz" target="_blank"><img src="{{ asset('images/facebook_16.png') }}" alt="Facebook profile" /></a>
+					<a href="https://plus.google.com/u/1/112207716393987962329/about" target="_blank"><img src="{{ asset('images/google_plus_16.png') }}" alt="Google+ profile" /></a>
+					<a href="gtalk:chat?jid=gergely@polonkai.eu" target="_blank"><img src="{{ asset('images/googletalk_16.png') }}" alt="Google Talk" /></a>
+					<a href="http://twitter.com/W00d5t0ck" target="_blank"><img src="{{ asset('images/twitter_16.png') }}" alt="Twitter" /></a>
+					<a href="http://tumblr.w00d5t0ck.info" target="_blank"><img src="{{ asset('images/tumblr_16.png') }}" alt="Tumblr" /></a>
+					<a href="msnim:chat?contact=polesz@w00d5t0ck.info" target="_blank"><img src="{{ asset('images/windows_16.png') }}" alt="Windows Live" /></a>
+					<a href="http://w00d5t0ck.deviantart.com" target="_blank"><img src="{{ asset('images/deviantart_16.png') }}" alt="deviantArt" /></a>
+				</div>
 			</div>
 			<div id="content">
+				<div id="content-padding"></div>
 {% block content %}{% endblock content %}
 			</div>
 		</div>
