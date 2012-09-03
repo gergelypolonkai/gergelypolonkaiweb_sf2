@@ -1,7 +1,0 @@
-parameters:
-#    gergely_polonkai_front.example.class: GergelyPolonkai\FrontBundle\Example
-
-services:
-#    gergely_polonkai_front.example:
-#        class: %gergely_polonkai_front.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

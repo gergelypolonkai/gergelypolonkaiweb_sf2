@@ -1,5 +1,6 @@
-GergelyPolonkaiFrontBundle:
-    resource: "@GergelyPolonkaiFrontBundle/Resources/config/routing.yml"
+gergely_polonkai_front:
+    resource: "@GergelyPolonkaiFrontBundle/Controller/"
+    type:     annotation
     prefix:   /
 
 # Internal routing configuration to handle ESI
