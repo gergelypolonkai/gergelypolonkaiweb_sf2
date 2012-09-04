@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Gergely Polonkai{% block title %}{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 {% stylesheets 'bundles/gergelypolonkaifront/css/*' filter='cssrewrite' output='css/gergelypolonkaiweb.css' %}
 		<link rel="stylesheet" type="text/css" href="{{ asset_url }}" media="screen" />
 {% endstylesheets %}
