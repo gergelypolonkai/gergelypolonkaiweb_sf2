@@ -1,0 +1,8 @@
+{% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+
+{% block content %}
+<form method="post" action="{{ path('GergelyPolonkaiFrontBundle_adminNewBlogPost') }}">
+{{ form_widget(form) }}
+        <button type="submit">Save</button>
+</form>
+{% endblock content %}

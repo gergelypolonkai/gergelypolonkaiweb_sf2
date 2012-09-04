@@ -35,6 +35,7 @@ class GeshiHighlight extends \Twig_Extension
         $this->geshi->set_source($code);
         $this->geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS);
         $this->geshi->enable_keyword_links(false);
+        $this->geshi->set_overall_class("code");
         $this->geshi->enable_classes();
 
         return $this->geshi->parse_code();

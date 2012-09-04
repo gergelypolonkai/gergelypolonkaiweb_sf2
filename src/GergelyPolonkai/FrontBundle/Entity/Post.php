@@ -4,6 +4,7 @@ namespace GergelyPolonkai\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as GedmoORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Description of Post
@@ -36,6 +37,7 @@ class Post
      * @var string $title
      *
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank()
      */
     private $title;
 
@@ -51,6 +53,7 @@ class Post
      * @var string $content
      *
      * @ORM\Column(type="text", nullable=false)
+     * @Assert\NotBlank()
      */
     private $content;
 
@@ -159,5 +162,31 @@ class Post
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Post
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Post
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
     }
 }

@@ -4,18 +4,18 @@ jms_security_extra:
 
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        GergelyPolonkai\FrontBundle\Entity\User:
+            id: gergely_polonkai_front.service.crypt_encoder
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
-        in_memory:
-            memory:
-                users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        gergely_polonkai_front.entity.user:
+            entity:
+                class: GergelyPolonkai\FrontBundle\Entity\User
+                property: username
 
     firewalls:
         dev:
@@ -23,17 +23,17 @@ security:
             security: false
 
         login:
-            pattern:  ^/demo/secured/login$
+            pattern:  ^/admin/login.html$
             security: false
 
         secured_area:
-            pattern:    ^/demo/secured/
+            pattern:    ^/admin
             form_login:
-                check_path: /demo/secured/login_check
-                login_path: /demo/secured/login
+                check_path: /admin/login-check.do
+                login_path: /admin/login.html
             logout:
-                path:   /demo/secured/logout
-                target: /demo/
+                path:   /admin/logout
+                target: /
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"

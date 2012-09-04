@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Io\TcpdfBundle\IoTcpdfBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new GergelyPolonkai\FrontBundle\GergelyPolonkaiFrontBundle(),
             new GergelyPolonkai\GeshiBundle\GergelyPolonkaiGeshiBundle(),
         );

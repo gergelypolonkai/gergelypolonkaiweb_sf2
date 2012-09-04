@@ -2,6 +2,7 @@
 namespace GergelyPolonkai\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Description of User
@@ -11,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="users")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -29,6 +30,29 @@ class User
      * @ORM\Column(type="string", length=100)
      */
     private $name;
+
+    /**
+     * @var string $password
+     *
+     * @ORM\Column(type="string", length=50, nullable=false)
+     */
+    private $password;
+
+    public function __toString()
+    {
+        return $this->name . '(' . $this->username . ')';
+    }
+
+    public function getSalt() {
+        return $this->password;
+    }
+
+    public function eraseCredentials() {
+    }
+
+    public function getRoles() {
+        return array('ROLE_ADMIN');
+    }
 
     /**
      * Get id
@@ -84,5 +108,27 @@ class User
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set password
+     *
+     * @param  string $password
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
     }
 }

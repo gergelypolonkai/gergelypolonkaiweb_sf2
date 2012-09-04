@@ -24,9 +24,10 @@
         "sensio/generator-bundle": "2.1.*",
         "jms/security-extra-bundle": "1.2.*",
         "jms/di-extra-bundle": "1.1.*",
-	"easybook/geshi": "dev-master",
-	"stof/doctrine-extensions-bundle": "dev-master",
-	"doctrine/doctrine-migrations-bundle": "dev-master",
+        "easybook/geshi": "dev-master",
+        "stof/doctrine-extensions-bundle": "dev-master",
+        "doctrine/doctrine-migrations-bundle": "dev-master",
+        "egeloen/ckeditor-bundle": "dev-master",
         "gergelypolonkai/tcpdfbundle": "dev-master"
     },
     "scripts": {
