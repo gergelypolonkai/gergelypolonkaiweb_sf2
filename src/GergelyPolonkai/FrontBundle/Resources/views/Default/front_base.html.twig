@@ -1,45 +1,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict/EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Gergely Polonkai{% block title %}{% endblock %}</title>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Gergely Polonkai{% block title %}{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 {% stylesheets 'bundles/gergelypolonkaifront/css/*' filter='cssrewrite' output='css/gergelypolonkaiweb.css' %}
-		<link rel="stylesheet" type="text/css" href="{{ asset_url }}" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}" media="screen" />
 {% endstylesheets %}
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	</head>
-	<body>
-		<div id="content-wrapper">
-			<div id="header">
-				<h1><a href="{{ path('GergelyPolonkaiFrontBundle_homepage') }}">Gergely Polonkai</a></h1>
-				<h2>developer, systems engineer and administrator</h2>
-				<div id="contact-list">
-					<a href="mailto:gergely@polonkai.eu" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/email_16.png') }}" alt="E-mail" /></a>
-					<a href="http://www.linkedin.com/in/gergelypolonkai" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/linkedin_16.png') }}" alt="LinkedIn profile" /></a>
-					<a href="skype:w00dhun" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/skype_16.png') }}" alt="Skype" /></a>
-					<a href="http://facebook.com/Polesz" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/facebook_16.png') }}" alt="Facebook profile" /></a>
-					<a href="https://plus.google.com/u/1/112207716393987962329/about" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/google_plus_16.png') }}" alt="Google+ profile" /></a>
-					<a href="gtalk:chat?jid=gergely@polonkai.eu" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/googletalk_16.png') }}" alt="Google Talk" /></a>
-					<a href="http://twitter.com/W00d5t0ck" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/twitter_16.png') }}" alt="Twitter" /></a>
-					<a href="http://tumblr.w00d5t0ck.info" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/tumblr_16.png') }}" alt="Tumblr" /></a>
-					<a href="msnim:chat?contact=polesz@w00d5t0ck.info" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/windows_16.png') }}" alt="Windows Live" /></a>
-					<a href="http://w00d5t0ck.deviantart.com" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/deviantart_16.png') }}" alt="deviantArt" /></a>
-				</div>
-			</div>
-			<div id="content">
-				<div id="content-padding"></div>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="content-wrapper">
+            <div id="header">
+                <h1><a href="{{ path('GergelyPolonkaiFrontBundle_homepage') }}">Gergely Polonkai</a></h1>
+                <h2>developer, systems engineer and administrator</h2>
+                <div id="contact-list">
+                    <a href="mailto:gergely@polonkai.eu" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/email_16.png') }}" alt="E-mail" /></a>
+                    <a href="http://www.linkedin.com/in/gergelypolonkai" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/linkedin_16.png') }}" alt="LinkedIn profile" /></a>
+                    <a href="skype:w00dhun" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/skype_16.png') }}" alt="Skype" /></a>
+                    <a href="http://facebook.com/Polesz" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/facebook_16.png') }}" alt="Facebook profile" /></a>
+                    <a href="https://plus.google.com/u/1/112207716393987962329/about" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/google_plus_16.png') }}" alt="Google+ profile" /></a>
+                    <a href="gtalk:chat?jid=gergely@polonkai.eu" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/googletalk_16.png') }}" alt="Google Talk" /></a>
+                    <a href="http://twitter.com/W00d5t0ck" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/twitter_16.png') }}" alt="Twitter" /></a>
+                    <a href="http://tumblr.w00d5t0ck.info" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/tumblr_16.png') }}" alt="Tumblr" /></a>
+                    <a href="msnim:chat?contact=polesz@w00d5t0ck.info" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/windows_16.png') }}" alt="Windows Live" /></a>
+                    <a href="http://w00d5t0ck.deviantart.com" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/deviantart_16.png') }}" alt="deviantArt" /></a>
+                </div>
+            </div>
+            <div id="content">
+                <div id="content-padding"></div>
 {% block content %}{% endblock content %}
-			</div>
-		</div>
-		<div id="bottombar-wrapper">
-			<div id="bottombar-padding"></div>
-			<div id="bottombar"{% if app.environment == 'dev' %} style="bottom: 40px;"{% endif %}>
-				:: Copyright &copy; 2012, Gergely Polonkai :: <a href="{{ path('GergelyPolonkaiFrontBundle_disclaimer') }}">Disclaimer</a> ::
-			</div>
-		</div>
-		<script type="text/javascript">
-			$('.at-obfuscation').html('@');
-		</script>
-	</body>
+            </div>
+        </div>
+        <div id="bottombar-wrapper">
+            <div id="bottombar-padding"></div>
+            <div id="bottombar"{% if app.environment == 'dev' %} style="bottom: 40px;"{% endif %}>
+                :: Copyright &copy; 2012, Gergely Polonkai :: <a href="{{ path('GergelyPolonkaiFrontBundle_disclaimer') }}">Disclaimer</a> ::
+            </div>
+        </div>
+        <script type="text/javascript">
+            $('.at-obfuscation').html('@');
+        </script>
+    </body>
 </html>
