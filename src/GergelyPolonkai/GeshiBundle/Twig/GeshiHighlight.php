@@ -36,10 +36,12 @@ class GeshiHighlight extends \Twig_Extension
         $this->geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS);
         $this->geshi->enable_keyword_links(false);
         $this->geshi->enable_classes();
+
         return $this->geshi->parse_code();
     }
 
-    public function getName() {
+    public function getName()
+    {
         return 'geshi_highlighter';
     }
 }

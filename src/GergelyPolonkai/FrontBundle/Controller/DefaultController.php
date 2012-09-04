@@ -17,7 +17,13 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $query = $this->getDoctrine()->getEntityManager()->createQuery("SELECT p FROM GergelyPolonkaiFrontBundle:Post p ORDER BY p.createdAt DESC");
+        $query->setMaxResults(4);
+        $posts = $query->getResult();
+
+        return array(
+            'posts' => $posts,
+        );
     }
 
     /**
@@ -30,7 +36,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @param  string $_format
+     * @param string $_format
      *
      * @Route("/resume.{_format}", name="GergelyPolonkaiFrontBundle_resume")
      * @Template

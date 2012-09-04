@@ -1,0 +1,6 @@
+{% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+{% block content %}
+<h3>{{ post.title }}</h3>
+<p class="article-date">{{ post.createdAt|date('m-d-Y :: H:i') }} by {{ post.user.name }}</p>
+{{ post.content|raw }}
+{% endblock content %}
