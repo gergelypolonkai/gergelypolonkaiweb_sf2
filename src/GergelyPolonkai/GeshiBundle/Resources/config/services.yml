@@ -1,0 +1,8 @@
+parameters:
+    gergely_polonkai_geshi.geshi_highlighter.class: GergelyPolonkai\GeshiBundle\Twig\GeshiHighlight
+
+services:
+    gergely_polonkai_geshi.geshi_highlighter:
+        class: %gergely_polonkai_geshi.geshi_highlighter.class%
+        tags:
+            - { name: 'twig.extension' }

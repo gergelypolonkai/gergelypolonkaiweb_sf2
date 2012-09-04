@@ -1,4 +1,5 @@
 <?php
+require __DIR__ . '/../vendor/easybook/geshi/geshi.php';
 
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -21,6 +22,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
 	    new Io\TcpdfBundle\IoTcpdfBundle(),
             new GergelyPolonkai\FrontBundle\GergelyPolonkaiFrontBundle(),
+            new GergelyPolonkai\GeshiBundle\GergelyPolonkaiGeshiBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

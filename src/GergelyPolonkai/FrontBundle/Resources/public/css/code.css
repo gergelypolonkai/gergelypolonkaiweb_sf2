@@ -1,0 +1,58 @@
+/* 
+    Document   : code
+    Created on : 2012.09.04., 10:05:47
+    Author     : polonkai.gergely
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.code {
+    font-family: monospace;
+    background-color: #333;
+    padding: 5px;
+}
+
+.code * {
+    font-family: monospace;
+    color: #b5b5b5;
+}
+
+.code .kw1 {
+    color: #f0e68c;
+}
+
+.code .kw2 {
+    color: #cd5c5c;
+}
+
+.code .kw3 {
+    color: #f8dead;
+}
+
+.code .kw4 {
+    color: #ffa0a0;
+}
+
+.code .re0 {
+    color: #98fb98;
+}
+
+.code .sy0 {
+    color: #d9d9d9;
+}
+
+.code .co4 {
+    color: #87ceeb;
+}
+
+.code .br0 {
+    color: #f8d8a9;
+}
+
+.code .st_h {
+    color: #ffa0a0;
+}
+
+.code .me1 {
+    color: #ffffff;
+}
