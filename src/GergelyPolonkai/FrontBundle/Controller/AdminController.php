@@ -7,7 +7,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Security\Core\SecurityContext;
 
 use GergelyPolonkai\FrontBundle\Form\PostType;
+use GergelyPolonkai\FrontBundle\Form\CodeChunkType;
 use GergelyPolonkai\FrontBundle\Entity\Post;
+use GergelyPolonkai\FrontBundle\Entity\CodeChunk;
 
 /**
  * Description of AdminController
@@ -98,6 +100,56 @@ class AdminController extends Controller
 
         return array(
             'posts' => $posts,
+        );
+    }
+
+    /**
+     * @Route("/code-chunk/", name="GergelyPolonkaiFrontBundle_adminListChunk")
+     * @Template
+     */
+    public function listCodeChunkAction()
+    {
+        $chunkRepo = $this->getDoctrine()->getRepository('GergelyPolonkaiFrontBundle:CodeChunk');
+        $chunks = $chunkRepo->findBy(array(), array('title' => 'ASC'));
+
+        return array(
+            'chunks' => $chunks,
+        );
+    }
+
+    /**
+     * @Route("/code-chunk/edit/{id}", name="GergelyPolonkaiFrontBundle_adminEditChunk", defaults={"id": null})
+     * @Template
+     */
+    public function editChunkAction($id)
+    {
+        if (is_numeric($id)) {
+            $chunk = $this->getDoctrine()->getRepository('GergelyPolonkaiFrontBundle:CodeChunk')->findOneById($id);
+            if ($chunk === null) {
+                throw $this->createNotFoundException();
+            }
+        } else {
+            $chunk = new CodeChunk();
+        }
+
+        $form = $this->createForm(new CodeChunkType(), $chunk);
+        $request = $this->getRequest();
+        $user = $this->get('security.context')->getToken()->getUser();
+
+        if ($request->getMethod() === 'POST') {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->persist($chunk);
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('GergelyPolonkaiFrontBundle_adminListChunk'));
+            }
+        }
+
+        return array(
+            'form'  => $form->createView(),
+            'chunk' => $chunk,
         );
     }
 }

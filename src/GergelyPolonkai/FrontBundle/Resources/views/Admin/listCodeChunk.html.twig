@@ -1,0 +1,27 @@
+{% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+
+{% block content %}
+<h3>Code chunks</h3>
+<a href="{{ path('GergelyPolonkaiFrontBundle_adminEditChunk') }}">New Code Chunk</a>
+{% if chunks %}
+<table>
+    <thead>
+        <tr>
+            <td>Title</td>
+            <td>Language</td>
+            <td>Code</td>
+        </tr>
+    </thead>
+    <tbody>
+{% for chunk in chunks %}
+        <tr>
+            <td><a href="{{ path('GergelyPolonkaiFrontBundle_adminEditChunk', {id: chunk.id}) }}">{{ chunk.title }}</a></td>
+            <td>{{ chunk.language }}</td>
+            <td><input type="text" value="[$ code:{{ chunk.language }}:{{ chunk.slug }} $]" /></td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endif %}
+<a href="{{ path('GergelyPolonkaiFrontBundle_adminEditChunk') }}">New Code Chunk</a>
+{% endblock content %}

@@ -16,7 +16,7 @@ class Version20120905131921 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != "mysql");
 
         $this->addSql("ALTER TABLE blog_posts ADD draft TINYINT(1) NOT NULL");
-	$this->addSql("UPDATE blog_posts SET draft = 0");
+        $this->addSql("UPDATE blog_posts SET draft = 0");
     }
 
     public function down(Schema $schema)
