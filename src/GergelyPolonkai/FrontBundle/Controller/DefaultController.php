@@ -20,7 +20,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        $query = $this->getDoctrine()->getEntityManager()->createQuery("SELECT p FROM GergelyPolonkaiFrontBundle:Post p ORDER BY p.createdAt DESC");
+        $query = $this->getDoctrine()->getEntityManager()->createQuery("SELECT p FROM GergelyPolonkaiFrontBundle:Post p WHERE p.draft = FALSE ORDER BY p.createdAt DESC");
         $query->setMaxResults(4);
         $posts = $query->getResult();
 

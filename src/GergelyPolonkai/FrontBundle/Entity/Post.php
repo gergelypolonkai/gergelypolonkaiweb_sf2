@@ -66,6 +66,14 @@ class Post
     private $createdAt;
 
     /**
+     *
+     * @var boolean $draft
+     *
+     * @ORM\Column(type="boolean")
+     */
+    private $draft;
+
+    /**
      * Get id
      *
      * @return integer
@@ -188,5 +196,28 @@ class Post
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+
+    /**
+     * Set draft
+     *
+     * @param  boolean $draft
+     * @return Post
+     */
+    public function setDraft($draft)
+    {
+        $this->draft = $draft;
+
+        return $this;
+    }
+
+    /**
+     * Get draft
+     *
+     * @return boolean
+     */
+    public function getDraft()
+    {
+        return $this->draft;
     }
 }

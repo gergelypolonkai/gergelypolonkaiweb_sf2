@@ -12,6 +12,7 @@ class PostType extends AbstractType
     {
         $builder
             ->add('title')
+            ->add('draft')
             ->add('content', 'ckeditor')
         ;
     }

@@ -62,6 +62,7 @@ class AdminController extends Controller
             }
         } else {
             $post = new Post();
+            $post->setDraft(true);
         }
         $form = $this->createForm(new PostType(), $post);
         $request = $this->getRequest();
