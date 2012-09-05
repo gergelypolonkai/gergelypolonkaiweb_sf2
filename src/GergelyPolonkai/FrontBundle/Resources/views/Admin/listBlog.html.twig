@@ -1,0 +1,27 @@
+{% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+
+{% block content %}
+<h3>All posts</h3>
+<a href="{{ path('GergelyPolonkaiFrontBundle_adminEditBlogPost') }}">New post</a>
+<table>
+    <thead>
+        <tr>
+            <td>Title (click to edit)</td>
+            <td>Author</td>
+            <td>Created at</td>
+        </tr>
+    </thead>
+{% if posts %}
+    <tbody>
+{% for post in posts %}
+        <tr>
+            <td><a href="{{ path('GergelyPolonkaiFrontBundle_adminEditBlogPost', {id: post.id}) }}">{{ post.title }}</a></td>
+            <td>{{ post.user.name }}</td>
+            <td>{{ post.createdAt|date('m/d/Y') }}</td>
+        </tr>
+{% endfor %}
+    </tbody>
+{% endif %}
+</table>
+<a href="{{ path('GergelyPolonkaiFrontBundle_adminEditBlogPost') }}">New post</a>
+{% endblock %}

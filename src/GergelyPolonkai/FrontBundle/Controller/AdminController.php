@@ -50,12 +50,19 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/blog/post", name="GergelyPolonkaiFrontBundle_adminNewBlogPost")
+     * @Route("/blog/post/{id}", name="GergelyPolonkaiFrontBundle_adminEditBlogPost", defaults={"id": null})
      * @Template
      */
-    public function newBlogPostAction()
+    public function newBlogPostAction($id = null)
     {
-        $post = new Post();
+        if (is_numeric($id)) {
+            $post = $this->getDoctrine()->getRepository('GergelyPolonkaiFrontBundle:Post')->findOneById($id);
+            if ($post === null) {
+                throw $this->createNotFoundException();
+            }
+        } else {
+            $post = new Post();
+        }
         $form = $this->createForm(new PostType(), $post);
         $request = $this->getRequest();
         $user = $this->get('security.context')->getToken()->getUser();
@@ -68,12 +75,28 @@ class AdminController extends Controller
                 $em->persist($post);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('GergelyPolonkaiFrontBundle_adminNewBlogPost'));
+                return $this->redirect($this->generateUrl('GergelyPolonkaiFrontBundle_adminBlogList'));
             }
         }
 
         return array(
             'form' => $form->createView(),
+            'post' => $post,
+        );
+    }
+
+    /**
+     * @Route("/blog/", name="GergelyPolonkaiFrontBundle_adminBlogList")
+     * @Template
+     */
+    public function listBlogAction()
+    {
+        $postRepo = $this->getDoctrine()->getRepository('GergelyPolonkaiFrontBundle:Post');
+
+        $posts = $postRepo->findBy(array(), array('createdAt' => 'DESC'));
+
+        return array(
+            'posts' => $posts,
         );
     }
 }
