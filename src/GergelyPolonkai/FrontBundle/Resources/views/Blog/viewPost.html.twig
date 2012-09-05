@@ -1,6 +1,5 @@
 {% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+
 {% block content %}
-<h3>{{ post.title }}</h3>
-<p class="article-date">{{ post.createdAt|date('m-d-Y :: H:i') }} by {{ post.user.name }}</p>
-{{ post.content|raw }}
+{% include 'GergelyPolonkaiFrontBundle:Blog:postViewer.html.twig' with {'post': post, 'title_links': false} %}
 {% endblock content %}

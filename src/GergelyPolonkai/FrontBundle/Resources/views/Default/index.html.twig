@@ -2,8 +2,6 @@
 
 {% block content %}
 {% for post in posts %}
-<h3><a href="{{ path('GergelyPolonkaiFront_blogViewPost', {year: post.createdAt|date('Y'), month: post.createdAt|date('m'), day: post.createdAt|date('d'), slug: post.slug}) }}">{{ post.title }}</a></h3>
-<p class="article-date">{{ post.createdAt|date('m-d-Y :: H:i') }} by {{ post.user.name }}</p>
-{{ post.content|raw }}
+{% include 'GergelyPolonkaiFrontBundle:Blog:postViewer.html.twig' with {'post': post, 'title_links': true} %}
 {% endfor %}
 {% endblock content %}

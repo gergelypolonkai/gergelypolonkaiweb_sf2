@@ -6,10 +6,36 @@
         Purpose of the stylesheet follows.
 */
 
+.code-chunk {
+    background-color: #b5b5b5;
+    padding: 10px;
+}
+
+.code-chunk .code-title {
+    text-indent: 0 !important;
+    font-size: 120%;
+    font-weight: bold;
+}
+
+.code-chunk .code-description {
+    border: 1px solid #333;
+    background-color: #d9d9d9;
+    padding: 3px;
+    text-indent: 0 !important;
+    margin: .5em 0 0 0 !important;
+    font-size: 75%;
+    color: #444;
+}
+
 .code {
     font-family: monospace;
     background-color: #333;
     padding: 5px;
+}
+
+.code-chunk .code {
+    height: 300px;
+    overflow: auto;
 }
 
 .code * {

@@ -13,7 +13,7 @@ use GergelyPolonkai\FrontBundle\Entity\Post;
  * Description of AdminController
  *
  * @author polonkai.gergely
- * 
+ *
  * @Route("/admin")
  */
 class AdminController extends Controller

@@ -5,6 +5,9 @@ namespace GergelyPolonkai\FrontBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+
+use GergelyPolonkai\FrontBundle\Entity\CodeChunk;
 
 /**
  * @Route("")
@@ -59,5 +62,22 @@ class DefaultController extends Controller
                 'format' => $_format,
             );
         }
+    }
+
+    /**
+     *
+     * @param  string $slug
+     * @param  string $language
+     * @return array
+     *
+     * @Route("/code-chunk/{language}/{slug}.html", name="GergelyPolonkaiFrontBundle_viewCode")
+     * @Template
+     * @ParamConverter("codeChunk", options={"mapping"={"slug"="slug", "language"="language"}})
+     */
+    public function viewCodeAction(CodeChunk $codeChunk)
+    {
+        return array(
+            'code_chunk' => $codeChunk,
+        );
     }
 }

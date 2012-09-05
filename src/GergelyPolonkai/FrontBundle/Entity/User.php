@@ -43,14 +43,17 @@ class User implements UserInterface
         return $this->name . '(' . $this->username . ')';
     }
 
-    public function getSalt() {
+    public function getSalt()
+    {
         return $this->password;
     }
 
-    public function eraseCredentials() {
+    public function eraseCredentials()
+    {
     }
 
-    public function getRoles() {
+    public function getRoles()
+    {
         return array('ROLE_ADMIN');
     }
 
@@ -119,6 +122,7 @@ class User implements UserInterface
     public function setPassword($password)
     {
         $this->password = $password;
+
         return $this;
     }
 

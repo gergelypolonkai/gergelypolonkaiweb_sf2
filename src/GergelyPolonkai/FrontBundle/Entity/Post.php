@@ -167,7 +167,7 @@ class Post
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return Post
      */
     public function setSlug($slug)
@@ -180,7 +180,7 @@ class Post
     /**
      * Set createdAt
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime $createdAt
      * @return Post
      */
     public function setCreatedAt($createdAt)
