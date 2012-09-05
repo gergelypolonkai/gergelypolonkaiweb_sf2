@@ -1,6 +1,6 @@
-{% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+{% extends 'GergelyPolonkaiFrontBundle:Admin:index.html.twig' %}
 
-{% block content %}
+{% block admincontent %}
 <h3>All posts</h3>
 <a href="{{ path('GergelyPolonkaiFrontBundle_adminEditBlogPost') }}">New post</a>
 <table>
@@ -24,4 +24,4 @@
 {% endif %}
 </table>
 <a href="{{ path('GergelyPolonkaiFrontBundle_adminEditBlogPost') }}">New post</a>
-{% endblock %}
+{% endblock admincontent %}

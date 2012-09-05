@@ -1,6 +1,6 @@
-{% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+{% extends 'GergelyPolonkaiFrontBundle:Admin:index.html.twig' %}
 
-{% block content %}
+{% block admincontent %}
 <h3>Code chunks</h3>
 <a href="{{ path('GergelyPolonkaiFrontBundle_adminEditChunk') }}">New Code Chunk</a>
 {% if chunks %}
@@ -24,4 +24,4 @@
 </table>
 {% endif %}
 <a href="{{ path('GergelyPolonkaiFrontBundle_adminEditChunk') }}">New Code Chunk</a>
-{% endblock content %}
+{% endblock admincontent %}

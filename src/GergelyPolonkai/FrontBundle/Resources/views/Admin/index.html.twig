@@ -1,0 +1,10 @@
+{% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+
+{% block content %}
+<ul class="menu">
+    <li><a href="{{ path('GergelyPolonkaiFrontBundle_adminListChunk') }}">Code Chunks</a></li>
+    <li><a href="{{ path('GergelyPolonkaiFrontBundle_adminBlogList') }}">Blog Posts</a></li>
+</ul>
+{% block admincontent %}
+{% endblock %}
+{% endblock content %}

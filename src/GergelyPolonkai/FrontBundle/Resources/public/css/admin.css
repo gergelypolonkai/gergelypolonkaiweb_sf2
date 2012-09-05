@@ -1,0 +1,19 @@
+/* 
+    Document   : admin.css
+    Created on : 2012.09.05., 15:49:05
+    Author     : polonkai.gergely
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+ul.menu {
+    padding: .5em;
+    list-style-type: none;
+    margin: 0 0 1em 0;
+    border-bottom: 1px solid black;
+}
+
+ul.menu li {
+    display: inline;
+    margin-right: 1em;
+}

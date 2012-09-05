@@ -1,6 +1,6 @@
-{% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+{% extends 'GergelyPolonkaiFrontBundle:Admin:index.html.twig' %}
 
-{% block content %}
+{% block admincontent %}
 {% if chunk.id is not null %}
 <h3>Edit Code Chunk - {{ chunk.title }}</h3>
 {% else %}
@@ -11,4 +11,4 @@
     <button type="submit">Save</button>
     <a href="{{ path('GergelyPolonkaiFrontBundle_adminListChunk') }}">Cancel</a>
 </form>
-{% endblock content %}
+{% endblock admincontent %}

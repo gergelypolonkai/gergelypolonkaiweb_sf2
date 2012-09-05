@@ -1,6 +1,6 @@
-{% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+{% extends 'GergelyPolonkaiFrontBundle:Admin:index.html.twig' %}
 
-{% block content %}
+{% block admincontent %}
 {% if post.id is not null %}
 <form method="post" action="{{ path('GergelyPolonkaiFrontBundle_adminEditBlogPost', {id: post.id}) }}">
 {% else %}
@@ -10,4 +10,4 @@
         <button type="submit">Save</button>
         <a href="{{ path('GergelyPolonkaiFrontBundle_adminBlogList') }}">Cancel</a>
 </form>
-{% endblock content %}
+{% endblock admincontent %}

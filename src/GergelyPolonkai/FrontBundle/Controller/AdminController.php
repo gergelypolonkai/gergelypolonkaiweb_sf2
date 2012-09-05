@@ -152,4 +152,13 @@ class AdminController extends Controller
             'chunk' => $chunk,
         );
     }
+
+    /**
+     * @Route("/")
+     * @Template
+     */
+    public function indexAction()
+    {
+        return array();
+    }
 }
