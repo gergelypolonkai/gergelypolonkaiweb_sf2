@@ -6,18 +6,22 @@
 <table>
     <thead>
         <tr>
+            <td></td>
             <td>Title (click to edit)</td>
             <td>Author</td>
             <td>Created at</td>
+            <td></td>
         </tr>
     </thead>
 {% if posts %}
     <tbody>
 {% for post in posts %}
         <tr>
+            <td>{% if post.draft %}D{% endif %}</td>
             <td><a href="{{ path('GergelyPolonkaiFrontBundle_adminEditBlogPost', {id: post.id}) }}">{{ post.title }}</a></td>
             <td>{{ post.user.name }}</td>
             <td>{{ post.createdAt|date('m/d/Y') }}</td>
+            <td><a href="{{ path('GergelyPolonkaiFront_blogViewPost', {year: post.createdAt|date('Y'), month: post.createdAt|date('m'), day: post.createdAt|date('d'), slug: post.slug}) }}" target="gergelypolonkai_blogpreview">Preview</a></td>
         </tr>
 {% endfor %}
     </tbody>
