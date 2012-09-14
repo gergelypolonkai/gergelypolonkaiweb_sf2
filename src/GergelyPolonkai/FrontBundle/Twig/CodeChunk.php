@@ -86,6 +86,23 @@ class CodeChunk extends \Twig_Extension
             $string = substr_replace($string, $replacement, $start, $len);
         }
 
+        while (
+            preg_match(
+                '/\\[\\$ code:([^:]+):(.+?) \\$\\]/is',
+                    $string, $m, PREG_OFFSET_CAPTURE)
+        ) {
+            $start = $m[0][1];
+            $fullTag = $m[0][0];
+            $len = strlen($fullTag);
+
+            $lang = strtolower($m[1][0]);
+            $code = $m[2][0];
+
+            $replacement = '<div class="code-chunk">' . $this->hiliter->geshiFilter($code, $lang) . '</div>';
+
+            $string = substr_replace($string, $replacement, $start, $len);
+        }
+
         return $string;
     }
 
