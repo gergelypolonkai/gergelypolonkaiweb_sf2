@@ -11,11 +11,13 @@ use GergelyPolonkai\FrontBundle\Entity\Post;
  * Description of BlogController
  *
  * @author polonkai.gergely
+ *
+ * @Route("/blog")
  */
 class BlogController extends Controller
 {
     /**
-     * @Route("/blog/{year}/{month}/{day}/{slug}.html", name="GergelyPolonkaiFront_blogViewPost")
+     * @Route("/{year}/{month}/{day}/{slug}.html", name="GergelyPolonkaiFront_blogViewPost")
      * @Template
      */
     public function viewPostAction($year, $month, $day, $slug)

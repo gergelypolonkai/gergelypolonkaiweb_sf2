@@ -12,6 +12,9 @@
     <body>
         <div id="content-wrapper">
             <div id="header" style="background-image: url('{{ asset('bundles/gergelypolonkaifront/images/' ~ random_header) }}');">
+                <div id="picture">
+                    <img src="{{ asset('bundles/gergelypolonkaifront/images/profile.png') }}" alt="" />
+                </div>
                 <h1><a href="{{ path('GergelyPolonkaiFrontBundle_homepage') }}">Gergely Polonkai</a></h1>
                 <h2>developer, systems engineer and administrator</h2>
                 <div id="contact-list">
@@ -29,6 +32,12 @@
             </div>
             <div id="content">
                 <div id="content-padding"></div>
+                <div id="menu">
+                    <ul>
+                        <li><a href="{{ path('GergelyPolonkaiFrontBundle_about') }}">About me</a></li>
+                        <li><a href="{{ path('GergelyPolonkaiFrontBundle_homepage') }}">Blog</a></li>
+                    </ul>
+                </div>
 {% block content %}{% endblock content %}
             </div>
         </div>

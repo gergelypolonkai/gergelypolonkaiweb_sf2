@@ -30,6 +30,15 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/about-me.html", name="GergelyPolonkaiFrontBundle_about")
+     * @Template
+     */
+    public function aboutAction()
+    {
+        return array();
+    }
+
+    /**
      * @Route("/disclaimer.html", name="GergelyPolonkaiFrontBundle_disclaimer")
      * @Template
      */
