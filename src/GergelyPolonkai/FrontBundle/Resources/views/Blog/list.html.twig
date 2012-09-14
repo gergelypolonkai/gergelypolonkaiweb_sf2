@@ -1,0 +1,33 @@
+{% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
+
+{% block title %} - Blog{% endblock %}
+
+{% block paginator %}
+{% if count > 1 %}
+<div class="paginator">
+{% if cpage > 0 %}
+<a href="{{ path('GergelyPolonkaiFrontBundle_blogListing') }}">First</a>
+{% endif %}
+{% if cpage > 1 %}
+<a href="{{ path('GergelyPolonkaiFrontBundle_blogListingPage', {cPage: cpage}) }}">Previous</a>
+{% endif %}
+{% for i in 1..count %}
+{% if cpage != i - 1 %}<a href="{{ (i == 1) ? path('GergelyPolonkaiFrontBundle_blogListing') : path('GergelyPolonkaiFrontBundle_blogListingPage', {cPage: i}) }}">{% endif %}{{ i }}{% if cpage != i - 1 %}</a> {% else %} {% endif %}
+{% endfor %}
+{% if cpage < count - 2 %}
+<a href="{{ path('GergelyPolonkaiFrontBundle_blogListingPage', {cPage: cpage + 2}) }}">Next</a>
+{% endif %}
+{% if cpage < count - 1 %}
+<a href="{{ path('GergelyPolonkaiFrontBundle_blogListingPage', {cPage: count}) }}">Last</a>
+{% endif %}
+</div>
+{% endif %}
+{% endblock paginator %}
+
+{% block content %}
+{{ block('paginator') }}
+{% for post in posts %}
+{% include 'GergelyPolonkaiFrontBundle:Blog:postViewer.html.twig' with {'post': post, 'title_links': true} %}
+{% endfor %}
+{{ block('paginator') }}
+{% endblock content %}

@@ -4,6 +4,7 @@ namespace GergelyPolonkai\FrontBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 use GergelyPolonkai\FrontBundle\Entity\Post;
 
@@ -16,6 +17,36 @@ use GergelyPolonkai\FrontBundle\Entity\Post;
  */
 class BlogController extends Controller
 {
+    /**
+     * @Route("/", name="GergelyPolonkaiFrontBundle_blogListing")
+     * @Route("/page/{cPage}", name="GergelyPolonkaiFrontBundle_blogListingPage", requirements={"cPage": "\d+"})
+     * @Template
+     */
+    public function listAction($cPage = 1)
+    {
+        // TODO: Make this a config parameter
+        $postsPerPage = 10;
+        --$cPage;
+
+        $query = $this
+                ->getDoctrine()
+                ->getEntityManager()
+                ->createQuery("SELECT p FROM GergelyPolonkaiFrontBundle:Post p WHERE p.draft = FALSE ORDER BY p.createdAt DESC")
+                ->setFirstResult($cPage * $postsPerPage)
+                ->setMaxResults($postsPerPage);
+
+        $paginator = new Paginator($query, $fetchJoinCollection = true);
+        $count = $paginator->count();
+        $pageCount = ceil($count / $postsPerPage);
+
+        return array(
+            'cpage'   => $cPage,
+            'count'   => $pageCount,
+            'posts'   => $paginator,
+            'perPage' => $postsPerPage,
+        );
+    }
+
     /**
      * @Route("/{year}/{month}/{day}/{slug}.html", name="GergelyPolonkaiFront_blogViewPost")
      * @Template

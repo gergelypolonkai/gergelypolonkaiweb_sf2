@@ -110,12 +110,6 @@ body {
 	text-decoration: underline;
 }
 
-#content p.article-date {
-	text-indent: 0;
-	font-size: 80%;
-	color: #7f7f7f;
-}
-
 dt {
 	font-weight: normal;
 	text-decoration: underline;
@@ -168,3 +162,7 @@ dd p {
 	text-decoration: underline;
 }
 
+#more-posts {
+    margin-top: 1em;
+    text-align: right;
+}

@@ -1,7 +1,10 @@
 {% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
 
 {% block content %}
+{% if posts %}
 {% for post in posts %}
 {% include 'GergelyPolonkaiFrontBundle:Blog:postViewer.html.twig' with {'post': post, 'title_links': true} %}
 {% endfor %}
+<div id="more-posts"><a href="{{ path('GergelyPolonkaiFrontBundle_blogListing') }}">See all my posts</a></div>
+{% endif %}
 {% endblock content %}
