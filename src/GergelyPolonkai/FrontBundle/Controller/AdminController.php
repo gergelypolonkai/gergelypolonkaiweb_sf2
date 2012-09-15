@@ -73,6 +73,9 @@ class AdminController extends Controller
         if ($request->getMethod() === 'POST') {
             $form->bind($request);
             if ($form->isValid()) {
+                if ($form->get('updateDate')->getData() == 1) {
+                    $post->setCreatedAt(new \DateTime('now'));
+                }
                 $post->setUser($user);
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($post);
