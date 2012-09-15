@@ -2,7 +2,6 @@
 namespace GergelyPolonkai\FrontBundle\Twig;
 
 use JMS\DiExtraBundle\Annotation as DI;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Description of RandomHeader
@@ -45,10 +44,12 @@ class RandomHeader extends \Twig_Extension
                 $files[] = $fn;
             }
         }
+
         return $files[array_rand($files)];
     }
 
-    public function getName() {
+    public function getName()
+    {
         return 'random_header';
     }
 }

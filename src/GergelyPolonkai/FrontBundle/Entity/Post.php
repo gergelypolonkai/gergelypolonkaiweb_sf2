@@ -6,6 +6,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as GedmoORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
+use GergelyPolonkai\FrontBundle\Entity\Comment;
+use GergelyPolonkai\FrontBundle\Entity\User;
+
 /**
  * Description of Post
  *
@@ -74,6 +79,22 @@ class Post
     private $draft;
 
     /**
+     *
+     * @var Doctrine\Common\Collections\ArrayCollection $comments
+     *
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post", fetch="LAZY")
+     */
+    private $comments;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
+
+    /**
      * Get id
      *
      * @return integer
@@ -122,7 +143,7 @@ class Post
      * @param  GergelyPolonkai\FrontBundle\Entity\User $user
      * @return Post
      */
-    public function setUser(\GergelyPolonkai\FrontBundle\Entity\User $user)
+    public function setUser(User $user)
     {
         $this->user = $user;
 
@@ -191,7 +212,7 @@ class Post
      * @param  \DateTime $createdAt
      * @return Post
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
 
@@ -219,5 +240,37 @@ class Post
     public function getDraft()
     {
         return $this->draft;
+    }
+    /**
+     * Add comments
+     *
+     * @param  GergelyPolonkai\FrontBundle\Entity\Comment $comments
+     * @return Post
+     */
+    public function addComment(Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param GergelyPolonkai\FrontBundle\Entity\Comment $comments
+     */
+    public function removeComment(Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
     }
 }
