@@ -21,7 +21,7 @@
             <td><a href="{{ path('GergelyPolonkaiFrontBundle_adminEditBlogPost', {id: post.id}) }}">{{ post.title }}</a></td>
             <td>{{ post.user.name }}</td>
             <td>{{ post.createdAt|date('m/d/Y') }}</td>
-            <td><a href="{{ path('GergelyPolonkaiFront_blogViewPost', {year: post.createdAt|date('Y'), month: post.createdAt|date('m'), day: post.createdAt|date('d'), slug: post.slug}) }}" target="gergelypolonkai_blogpreview">Preview</a></td>
+            <td><a href="{{ path('GergelyPolonkaiFrontBundle_blogViewPost', {year: post.createdAt|date('Y'), month: post.createdAt|date('m'), day: post.createdAt|date('d'), slug: post.slug}) }}" target="gergelypolonkai_blogpreview">Preview</a></td>
         </tr>
 {% endfor %}
     </tbody>

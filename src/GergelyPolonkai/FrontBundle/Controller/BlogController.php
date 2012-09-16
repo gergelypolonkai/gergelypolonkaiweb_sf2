@@ -48,7 +48,7 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/{year}/{month}/{day}/{slug}.html", name="GergelyPolonkaiFront_blogViewPost")
+     * @Route("/{year}/{month}/{day}/{slug}.html", name="GergelyPolonkaiFrontBundle_blogViewPost")
      * @Template
      */
     public function viewPostAction($year, $month, $day, $slug)
