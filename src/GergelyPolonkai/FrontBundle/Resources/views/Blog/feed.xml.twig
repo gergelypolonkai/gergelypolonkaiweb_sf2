@@ -19,7 +19,7 @@
 			<link>{{ app.request.scheme }}://{{app.request.host }}{{ path('GergelyPolonkaiFrontBundle_blogViewPost', {year: post.createdAt|date('Y'), month: post.createdAt|date('m'), day: post.createdAt|date('d'), slug: post.slug }) }}</link>
 			<comments>{{ app.request.scheme }}://{{app.request.host }}{{ path('GergelyPolonkaiFrontBundle_blogViewPost', {year: post.createdAt|date('Y'), month: post.createdAt|date('m'), day: post.createdAt|date('d'), slug: post.slug }) }}#comments</comments>
 			<pubDate>{{ post.createdAt|date('r') }}</pubDate>
-			<description>Content lead</description>
+			<description><![CDATA[{{post.content}}]]></description>
 			<guid>{{ app.request.scheme }}://{{app.request.host }}{{ path('GergelyPolonkaiFrontBundle_blogViewPost', {year: post.createdAt|date('Y'), month: post.createdAt|date('m'), day: post.createdAt|date('d'), slug: post.slug }) }}</guid>
 {#
 			<category><![CDATA[Cat1]]></category>
