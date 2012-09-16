@@ -7,6 +7,7 @@ use Gedmo\Mapping\Annotation as GedmoORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use DoctrineExtensions\Taggable\Taggable;
 
 use GergelyPolonkai\FrontBundle\Entity\Comment;
 use GergelyPolonkai\FrontBundle\Entity\User;
@@ -19,7 +20,7 @@ use GergelyPolonkai\FrontBundle\Entity\User;
  * @ORM\Entity
  * @ORM\Table(name="blog_posts")
  */
-class Post
+class Post implements Taggable
 {
     /**
      * @var integer $id
@@ -85,6 +86,8 @@ class Post
      * @ORM\OneToMany(targetEntity="Comment", mappedBy="post", fetch="LAZY")
      */
     private $comments;
+
+    private $tags;
 
     /**
      * Constructor
@@ -272,5 +275,22 @@ class Post
     public function getComments()
     {
         return $this->comments;
+    }
+
+    public function getTags()
+    {
+        $this->tags = $this->tags ?: new ArrayCollection();
+
+        return $this->tags;
+    }
+
+    public function getTaggableType()
+    {
+        return 'gergelypolonkaifront_post';
+    }
+
+    public function getTaggableId()
+    {
+        return $this->id;
     }
 }

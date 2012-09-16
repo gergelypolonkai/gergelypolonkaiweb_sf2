@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new FPN\TagBundle\FPNTagBundle(),
             new GergelyPolonkai\FrontBundle\GergelyPolonkaiFrontBundle(),
             new GergelyPolonkai\GeshiBundle\GergelyPolonkaiGeshiBundle(),
         );

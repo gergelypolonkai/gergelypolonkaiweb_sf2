@@ -69,3 +69,8 @@ stof_doctrine_extensions:
         default:
             sluggable: true
             timestampable: true
+
+fpn_tag:
+    model:
+        tag_class: GergelyPolonkai\FrontBundle\Entity\Tag
+        tagging_class: GergelyPolonkai\FrontBundle\Entity\Tagging
