@@ -73,6 +73,12 @@ class AdminController extends Controller
         if ($request->getMethod() === 'POST') {
             $form->bind($request);
             if ($form->isValid()) {
+                if (($tags = $form->get('tags')->getData()) != '') {
+                    $tagManager = $this->get('fpn_tag.tag_manager');
+                    $tagNames = $tagManager->splitTagNames($tags);
+                    $tagList = $tagManager->loadOrCreateTags($tagNames);
+                    $tagManager->addTags($tagList, $post);
+                }
                 if ($form->get('updateDate')->getData() == 1) {
                     $post->setCreatedAt(new \DateTime('now'));
                 }
@@ -80,10 +86,13 @@ class AdminController extends Controller
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->persist($post);
                 $em->flush();
+                $tagManager->saveTagging($post);
 
                 return $this->redirect($this->generateUrl('GergelyPolonkaiFrontBundle_adminBlogList'));
             }
         }
+        $tagManager = $this->get('fpn_tag.tag_manager');
+        $tagManager->loadTagging($post);
 
         return array(
             'form' => $form->createView(),

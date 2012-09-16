@@ -24,6 +24,11 @@ class DefaultController extends Controller
         $query->setMaxResults(4);
         $posts = $query->getResult();
 
+        $tagManager = $this->get('fpn_tag.tag_manager');
+        foreach ($posts as $post) {
+            $tagManager->loadTagging($post);
+        }
+
         return array(
             'posts' => $posts,
         );

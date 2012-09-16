@@ -15,6 +15,7 @@ class PostType extends AbstractType
             ->add('draft', null, array('required' => false))
             ->add('updateDate', 'checkbox', array('property_path' => false, 'required' => false, 'label' => 'Update creation date'))
             ->add('content', 'ckeditor')
+            ->add('tags', 'text', array('property_path' => false, 'required' => false, 'label' => 'Tags'))
         ;
     }
 

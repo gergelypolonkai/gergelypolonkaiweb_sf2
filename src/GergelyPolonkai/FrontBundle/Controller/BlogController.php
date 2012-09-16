@@ -36,6 +36,11 @@ class BlogController extends Controller
                 ->setMaxResults($postsPerPage);
 
         $paginator = new Paginator($query, $fetchJoinCollection = true);
+        $tagManager = $this->get('fpn_tag.tag_manager');
+        foreach ($paginator as $post) {
+            $tagManager->loadTagging($post);
+        }
+
         $count = $paginator->count();
         $pageCount = ceil($count / $postsPerPage);
 
@@ -66,6 +71,7 @@ class BlogController extends Controller
         $query->setParameter(':date1', $date);
         $query->setParameter(':date2', $date2);
         $post = $query->getOneOrNullResult();
+        $this->get('fpn_tag.tag_manager')->loadTagging($post);
 
         return array(
             'post' => $post,
