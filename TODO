@@ -1,9 +1,9 @@
 Blog post back-dating
 
-What happens to a post's createdAt field if I edit a post?
-
 Custom datetime widget (e.g a JS one?)
 
 Commenting (WIP)
 	Login via OAuth2 providers (FB, Google, GitHub)
 	Login via OpenID
+
+Blog RSS
