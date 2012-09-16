@@ -71,4 +71,20 @@ class BlogController extends Controller
             'post' => $post,
         );
     }
+
+    /**
+     * @Route("/feed", name="GergelyPolonkaiFrontBundle_blogFeed", defaults={"_format": "xml"})
+     * @Template
+     */
+    public function feedAction()
+    {
+        $query = $this->getDoctrine()->getEntityManager()->createQuery("SELECT p FROM GergelyPolonkaiFrontBundle:Post p WHERE p.draft = FALSE ORDER BY p.createdAt DESC");
+        $query->setMaxResults(10);
+        $posts = $query->getResult();
+
+        return array(
+            'now'   => new \DateTime('now'),
+            'posts' => $posts,
+        );
+    }
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+	<channel>
+		<title>Gergely Polonkai</title>
+		<description>Gergely Polonkai's Blog</description>
+		<link>{{ app.request.scheme }}://{{ app.request.host }}{{ app.request.basepath }}</link>
+		<lastBuildDate>{{ now|date('r') }}</lastBuildDate>
+		<pubDate>{{ now|date('r') }}</pubDate>
+		<ttl>7200</ttl>
+		<language>en</language>
+		<image>
+			<title>Gergely Polonkai</title>
+			<url>{{ app.request.scheme }}://{{ app.request.host }}{{ asset('bundles/gergelypolonkaifront/images/profile.png') }}</url>
+			<link>{{ app.request.scheme }}://{{ app.request.host }}{{ app.request.basepath }}</link>
+		</image>
+{% for post in posts %}
+		<item>
+			<title><![CDATA[{{ post.title }}]]></title>
+			<link>{{ app.request.scheme }}://{{app.request.host }}{{ path('GergelyPolonkaiFrontBundle_blogViewPost', {year: post.createdAt|date('Y'), month: post.createdAt|date('m'), day: post.createdAt|date('d'), slug: post.slug }) }}</link>
+			<comments>{{ app.request.scheme }}://{{app.request.host }}{{ path('GergelyPolonkaiFrontBundle_blogViewPost', {year: post.createdAt|date('Y'), month: post.createdAt|date('m'), day: post.createdAt|date('d'), slug: post.slug }) }}#comments</comments>
+			<pubDate>{{ post.createdAt|date('r') }}</pubDate>
+			<description>Content lead</description>
+			<guid>{{ app.request.scheme }}://{{app.request.host }}{{ path('GergelyPolonkaiFrontBundle_blogViewPost', {year: post.createdAt|date('Y'), month: post.createdAt|date('m'), day: post.createdAt|date('d'), slug: post.slug }) }}</guid>
+{#
+			<category><![CDATA[Cat1]]></category>
+#}
+		</item>
+{% endfor %}
+	</channel>
+</rss>
+

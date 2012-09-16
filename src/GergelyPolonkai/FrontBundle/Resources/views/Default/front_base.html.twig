@@ -7,6 +7,7 @@
 {% stylesheets 'bundles/gergelypolonkaifront/css/*' filter='cssrewrite' output='css/gergelypolonkaiweb.css' %}
         <link rel="stylesheet" type="text/css" href="{{ asset_url }}" media="screen" />
 {% endstylesheets %}
+        <link rel="alternate" type="application/rss+xml" title="Gergely Polonkai's Blog - RSS Feed" href="{{ app.request.scheme }}://{{ app.request.host }}{{ path('GergelyPolonkaiFrontBundle_blogFeed') }}" />
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     </head>
     <body>
@@ -28,6 +29,7 @@
                     <a href="http://tumblr.w00d5t0ck.info" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/tumblr_16.png') }}" alt="Tumblr" /></a>
                     <a href="msnim:chat?contact=polesz@w00d5t0ck.info" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/windows_16.png') }}" alt="Windows Live" /></a>
                     <a href="http://w00d5t0ck.deviantart.com" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/deviantart_16.png') }}" alt="deviantArt" /></a>
+                    <a href="{{ path('GergelyPolonkaiFrontBundle_blogFeed') }}"><img src="{{ asset('bundles/gergelypolonkaifront/images/rss_16.png') }}" alt="RSS Feed" /></a>
                 </div>
             </div>
             <div id="content">
