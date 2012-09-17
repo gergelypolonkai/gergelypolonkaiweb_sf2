@@ -46,6 +46,7 @@ class CodeChunk extends \Twig_Extension
     {
         return array(
             'insert_code_chunks' => new \Twig_Filter_Method($this, 'insertCodeChunks', array('is_safe' => array('html'))),
+            'remove_code_chunks' => new \Twig_Filter_Method($this, 'removeCodeChunks', array('is_safe' => array('html'))),
         );
     }
 
@@ -99,6 +100,40 @@ class CodeChunk extends \Twig_Extension
             $code = $m[2][0];
 
             $replacement = '<div class="code-chunk">' . $this->hiliter->geshiFilter($code, $lang) . '</div>';
+
+            $string = substr_replace($string, $replacement, $start, $len);
+        }
+
+        return $string;
+    }
+
+    public function removeCodeChunks($string)
+    {
+        $m = array();
+        $chunkRepo = $this->doctrine->getRepository('GergelyPolonkaiFrontBundle:CodeChunk');
+
+        while (
+            preg_match(
+                '/\\[\\$ code:([^:]+):([^ ]+) \\$\\]/i',
+                    $string, $m, PREG_OFFSET_CAPTURE)
+        ) {
+            $start = $m[0][1];
+            $fullTag = $m[0][0];
+            $len = strlen($fullTag);
+            $replacement = '';
+
+            $string = substr_replace($string, $replacement, $start, $len);
+        }
+
+        while (
+            preg_match(
+                '/\\[\\$ code:([^:]+):(.+?) \\$\\]/is',
+                    $string, $m, PREG_OFFSET_CAPTURE)
+        ) {
+            $start = $m[0][1];
+            $fullTag = $m[0][0];
+            $len = strlen($fullTag);
+            $replacement = '';
 
             $string = substr_replace($string, $replacement, $start, $len);
         }
