@@ -166,3 +166,32 @@ dd p {
     margin-top: 1em;
     text-align: right;
 }
+
+#tag-cloud a {
+    color: #b3b3b3;
+    text-decoration: none;
+}
+
+#tag-cloud .size0 {
+    font-size: 80%;
+}
+
+#tag-cloud .size1 {
+    font-size: 90%;
+}
+
+#tag-cloud .size2 {
+    font-size: 100%;
+}
+
+#tag-cloud .size3 {
+    font-size: 110%;
+}
+
+#tag-cloud .size4 {
+    font-size: 130%;
+}
+
+#tag-cloud .size5 {
+    font-size: 150%;
+}
