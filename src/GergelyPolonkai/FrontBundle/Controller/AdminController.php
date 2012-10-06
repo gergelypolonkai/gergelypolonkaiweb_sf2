@@ -55,7 +55,7 @@ class AdminController extends Controller
      * @Route("/blog/post/{id}", name="GergelyPolonkaiFrontBundle_adminEditBlogPost", defaults={"id": null})
      * @Template
      */
-    public function newBlogPostAction($id = null)
+    public function editBlogPostAction($id = null)
     {
         if (is_numeric($id)) {
             $post = $this->getDoctrine()->getRepository('GergelyPolonkaiFrontBundle:Post')->findOneById($id);
