@@ -7,7 +7,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/w00d5t0ck/IoTcpdfBundle"
+            "url": "https://github.com/gergelypolonkai/IoTcpdfBundle"
         }
     ],
     "require": {
@@ -44,9 +44,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
-    },
-    "config": {
-        "bin-dir": "bin"
     },
     "minimum-stability": "dev",
     "extra": {

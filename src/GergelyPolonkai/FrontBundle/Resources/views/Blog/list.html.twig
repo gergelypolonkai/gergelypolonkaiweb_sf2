@@ -26,6 +26,9 @@
 
 {% block content %}
 {{ block('paginator') }}
+{% if posts|length == 0 %}
+No posts found.
+{% endif %}
 {% for post in posts %}
 {% include 'GergelyPolonkaiFrontBundle:Blog:postViewer.html.twig' with {'post': post, 'title_links': true} %}
 {% endfor %}

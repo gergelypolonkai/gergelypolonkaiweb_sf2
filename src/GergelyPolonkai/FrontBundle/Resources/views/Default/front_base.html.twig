@@ -34,6 +34,13 @@
             </div>
             <div id="content">
                 <div id="content-padding"></div>
+{% if tagCloud|length > 0 %}
+                <div id="tag-cloud">
+{% for cloudItem in tagCloud %}
+                    <a href="{{ path('GergelyPolonkaiFrontBundle_blogTagList', { name: cloudItem.name }) }}" class="size{{ cloudItem.size }}">{{ cloudItem.name }}</a>
+{% endfor %}
+                </div>
+{% endif %}
                 <div id="menu">
                     <ul>
                         <li><a href="{{ path('GergelyPolonkaiFrontBundle_about') }}">About me</a></li>
