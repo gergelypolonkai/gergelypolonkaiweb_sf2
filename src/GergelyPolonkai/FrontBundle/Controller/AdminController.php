@@ -73,8 +73,8 @@ class AdminController extends Controller
         if ($request->getMethod() === 'POST') {
             $form->bind($request);
             if ($form->isValid()) {
+                $tagManager = $this->get('fpn_tag.tag_manager');
                 if (($tags = $form->get('tags')->getData()) != '') {
-                    $tagManager = $this->get('fpn_tag.tag_manager');
                     $tagNames = $tagManager->splitTagNames($tags);
                     $tagList = $tagManager->loadOrCreateTags($tagNames);
                     $tagManager->addTags($tagList, $post);
