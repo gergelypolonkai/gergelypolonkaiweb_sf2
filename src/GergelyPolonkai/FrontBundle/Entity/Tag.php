@@ -9,7 +9,7 @@ use FPN\TagBundle\Entity\Tag as BaseTag;
  *
  * @author polesz
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="DoctrineExtensions\Taggable\Entity\TagRepository")
  * @ORM\Table(name="tags")
  */
 class Tag extends BaseTag
