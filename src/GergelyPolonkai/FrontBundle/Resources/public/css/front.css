@@ -71,18 +71,37 @@ body {
 }
 
 #menu {
+    background-color: #b5b5b5;
+    height: 39px;
 }
 
 #menu ul {
-    margin: 0;
+    margin: 8px;
     padding: 0;
     list-style-type: none;
     text-align: right;
+    vertical-align: middle;
 }
 
 #menu ul li {
-    display: inline;
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
     margin-left: 1em;
+    height: 30px;
+}
+
+#menu ul li.active {
+    background-image: url('../images/arrow-up.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+#menu ul li a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 12px;
 }
 
 #content {
@@ -170,6 +189,7 @@ dd p {
 #tag-cloud a {
     color: #b3b3b3;
     text-decoration: none;
+    padding: 8px;
 }
 
 #tag-cloud .size0 {
@@ -194,4 +214,8 @@ dd p {
 
 #tag-cloud .size5 {
     font-size: 150%;
+}
+
+.clear {
+    clear: both;
 }

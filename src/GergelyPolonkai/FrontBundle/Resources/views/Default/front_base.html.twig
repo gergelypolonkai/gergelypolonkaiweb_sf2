@@ -32,22 +32,23 @@
                     <a href="{{ path('GergelyPolonkaiFrontBundle_blogFeed') }}"><img src="{{ asset('bundles/gergelypolonkaifront/images/rss_16.png') }}" alt="RSS Feed" /></a>
                 </div>
             </div>
-            <div id="content">
-                <div id="content-padding"></div>
+            <div id="content-padding"></div>
 {% if tagCloud|length > 0 %}
-                <div id="tag-cloud">
+            <div id="tag-cloud">
 {% for cloudItem in tagCloud %}
-                    <a href="{{ path('GergelyPolonkaiFrontBundle_blogTagList', { name: cloudItem.name }) }}" class="size{{ cloudItem.size }}">{{ cloudItem.name }}</a>{% if not loop.last %} | {% endif %}
+                <a href="{{ path('GergelyPolonkaiFrontBundle_blogTagList', { name: cloudItem.name }) }}" class="size{{ cloudItem.size }}">{{ cloudItem.name }}</a>{% if not loop.last %} | {% endif %}
 {% endfor %}
-                </div>
+            </div>
 {% endif %}
-                <div id="menu">
-                    <ul>
-                        <li><a href="{{ path('GergelyPolonkaiFrontBundle_about') }}">About me</a></li>
-                        <li><a href="{{ path('GergelyPolonkaiFrontBundle_blogListing') }}">Blog</a></li>
-                        <li><a href="{{ path('GergelyPolonkaiFrontBundle_resume', { _format: 'html' }) }}">Resume</a></li>
-                    </ul>
-                </div>
+            <div id="menu">
+                <ul>
+                    <li {% if currentMenu == 'resume' %} class="active"{% endif %}><a href="{{ path('GergelyPolonkaiFrontBundle_resume', { _format: 'html' }) }}">Resume</a></li>
+                    <li {% if currentMenu == 'blog' %} class="active"{% endif %}><a href="{{ path('GergelyPolonkaiFrontBundle_blogListing') }}">Blog</a></li>
+                    <li {% if currentMenu == 'about' %} class="active"{% endif %}><a href="{{ path('GergelyPolonkaiFrontBundle_about') }}">About me</a></li>
+                </ul>
+                <br class="clear" />
+            </div>
+            <div id="content">
 {% block content %}{% endblock content %}
             </div>
         </div>
