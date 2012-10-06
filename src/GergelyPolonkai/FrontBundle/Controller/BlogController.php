@@ -99,7 +99,7 @@ class BlogController extends Controller
 
     /**
      * @Route("/tag/{name}/", name="GergelyPolonkaiFrontBundle_blogTagList")
-     * @Route("/tag/{name}/page/{cPage}", name="GergelyPolonkaiFrontBundle_blogListingPage", requirements={"cPage": "\d+"})
+     * @Route("/tag/{name}/page/{cPage}", name="GergelyPolonkaiFrontBundle_blogTagListingPage", requirements={"cPage": "\d+"})
      * @Template("GergelyPolonkaiFrontBundle:Blog:list.html.twig")
      * @ParamConverter("tag")
      */
