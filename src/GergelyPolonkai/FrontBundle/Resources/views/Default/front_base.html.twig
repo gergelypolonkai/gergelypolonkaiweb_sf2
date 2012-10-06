@@ -37,7 +37,7 @@
 {% if tagCloud|length > 0 %}
                 <div id="tag-cloud">
 {% for cloudItem in tagCloud %}
-                    <a href="{{ path('GergelyPolonkaiFrontBundle_blogTagList', { name: cloudItem.name }) }}" class="size{{ cloudItem.size }}">{{ cloudItem.name }}</a>
+                    <a href="{{ path('GergelyPolonkaiFrontBundle_blogTagList', { name: cloudItem.name }) }}" class="size{{ cloudItem.size }}">{{ cloudItem.name }}</a>{% if not loop.last %} | {% endif %}
 {% endfor %}
                 </div>
 {% endif %}
