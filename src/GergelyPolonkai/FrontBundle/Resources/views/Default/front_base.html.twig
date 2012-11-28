@@ -33,14 +33,8 @@
                 </div>
             </div>
             <div id="content-padding"></div>
-{% if tagCloud|length > 0 %}
-            <div id="tag-cloud">
-{% for cloudItem in tagCloud %}
-                <a href="{{ path('GergelyPolonkaiFrontBundle_blogTagList', { name: cloudItem.name }) }}" class="size{{ cloudItem.size }}">{{ cloudItem.name }}</a>{% if not loop.last %} | {% endif %}
-{% endfor %}
-            </div>
-{% endif %}
             <div id="menu">
+                <div id="tagcloud-button"><img alt="" src="{{ asset('bundles/gergelypolonkaifront/images/tagcloud.png') }}" /></div>
                 <ul>
                     <li {% if currentMenu == 'resume' %} class="active"{% endif %}><a href="{{ path('GergelyPolonkaiFrontBundle_resume', { _format: 'html' }) }}">Resume</a></li>
                     <li {% if currentMenu == 'blog' %} class="active"{% endif %}><a href="{{ path('GergelyPolonkaiFrontBundle_blogListing') }}">Blog</a></li>
@@ -48,6 +42,13 @@
                 </ul>
                 <br class="clear" />
             </div>
+{% if tagCloud|length > 0 %}
+            <div id="tag-cloud">
+{% for cloudItem in tagCloud %}
+                <a href="{{ path('GergelyPolonkaiFrontBundle_blogTagList', { name: cloudItem.name }) }}" class="size{{ cloudItem.size }}">{{ cloudItem.name }}</a>{% if not loop.last %} | {% endif %}
+{% endfor %}
+            </div>
+{% endif %}
             <div id="content">
 {% block content %}{% endblock content %}
             </div>
@@ -59,7 +60,13 @@
             </div>
         </div>
         <script type="text/javascript">
-            $('.at-obfuscation').html('@');
+            $(document).ready(function() {
+                $('.at-obfuscation').html('@');
+
+                $('#tagcloud-button').click(function() {
+                    $('#tag-cloud').toggle('slow');
+                });
+            });
         </script>
     </body>
 </html>
