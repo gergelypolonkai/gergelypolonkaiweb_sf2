@@ -1,5 +1,5 @@
 <div class="post">
-    <h3>{% if title_links %}<a href="{{ path('GergelyPolonkaiFrontBundle_blogViewPost', {year: post.createdAt|date('Y'), month: post.createdAt|date('m'), day: post.createdAt|date('d'), slug: post.slug}) }}">{% endif %}{{ post.title }}{% if title_links %}</a>{% endif %}</h3>
+    <h3>{% if title_links %}<a href="{{ path('GergelyPolonkaiFrontBundle_blogViewPost', {year: post.createdAt|date('Y'), month: post.createdAt|date('m'), day: post.createdAt|date('d'), slug: post.slug}) }}">{% endif %}{{ post.title }}{% if title_links %}</a>{% endif %}<div class="plusone-container"><div class="g-plusone" data-annotation="inline" data-size="small" data-width="300"></div></div></h3>
     <p class="article-date">{{ post.createdAt|date('m-d-Y :: H:i') }} by {{ post.user.name }}</p>
     {{ post.content|insert_code_chunks }}
 {% if post.tags|length > 0 %}
@@ -9,4 +9,5 @@
 {% endfor %}
     </p>
 {% endif %}
+    <div class="g-plus" data-action="share"></div>
 </div>
