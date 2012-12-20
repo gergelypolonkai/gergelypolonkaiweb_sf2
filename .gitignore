@@ -13,7 +13,6 @@ web/bundles/*
 app/config/parameters.ini
 
 # Composer related files
-composer.lock
 vendor/composer/installed.json
 
 # Assetic-generated .js and .css files
