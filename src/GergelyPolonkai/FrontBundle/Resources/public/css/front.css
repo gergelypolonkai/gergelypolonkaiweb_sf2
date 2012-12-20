@@ -71,18 +71,44 @@ body {
 }
 
 #menu {
+    background-color: #f18137;
+    height: 39px;
+    margin-top: 15px;
+}
+
+#tagcloud-button {
+    float: left;
+    padding-top: 2px;
+    padding-left: 6px;
+    cursor: pointer;
 }
 
 #menu ul {
-    margin: 0;
+    margin: 8px;
     padding: 0;
     list-style-type: none;
-    text-align: right;
+    float: right;
 }
 
 #menu ul li {
-    display: inline;
+    float: right;
+    margin-top: 1px;
+    margin-bottom: 10px;
     margin-left: 1em;
+    height: 30px;
+}
+
+#menu ul li.active {
+    background-image: url('../images/arrow-up.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+#menu ul li a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 12px;
 }
 
 #content {
@@ -165,4 +191,49 @@ dd p {
 #more-posts {
     margin-top: 1em;
     text-align: right;
+}
+
+#tag-cloud {
+    position: absolute;
+    width: 600px;
+    padding: 8px;
+    border: 1px solid black;
+    background-color: #303030;
+    margin-left: 5px;
+    margin-top: 2px;
+    display: none;
+}
+
+#tag-cloud a {
+    color: #b3b3b3;
+    text-decoration: none;
+    padding: 8px;
+}
+
+#tag-cloud .size0 {
+    font-size: 80%;
+}
+
+#tag-cloud .size1 {
+    font-size: 90%;
+}
+
+#tag-cloud .size2 {
+    font-size: 100%;
+}
+
+#tag-cloud .size3 {
+    font-size: 110%;
+}
+
+#tag-cloud .size4 {
+    font-size: 130%;
+}
+
+#tag-cloud .size5 {
+    font-size: 150%;
+}
+
+.clear {
+    clear: both;
 }

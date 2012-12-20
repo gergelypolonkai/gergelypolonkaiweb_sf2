@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Gergely Polonkai{% block title %}{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 {% stylesheets 'bundles/gergelypolonkaifront/css/*' filter='cssrewrite' output='css/gergelypolonkaiweb.css' %}
@@ -23,7 +24,7 @@
                     <a href="http://www.linkedin.com/in/gergelypolonkai" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/linkedin_16.png') }}" alt="LinkedIn profile" /></a>
                     <a href="skype:w00dhun" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/skype_16.png') }}" alt="Skype" /></a>
                     <a href="http://facebook.com/Polesz" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/facebook_16.png') }}" alt="Facebook profile" /></a>
-                    <a href="/https://plus.google.com/u/1/105740970718293884702about" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/google_plus_16.png') }}" alt="Google+ profile" /></a>
+                    <a href="https://plus.google.com/u/1/105740970718293884702/about" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/google_plus_16.png') }}" alt="Google+ profile" /></a>
                     <a href="gtalk:chat?jid=gergely@polonkai.eu" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/googletalk_16.png') }}" alt="Google Talk" /></a>
                     <a href="http://twitter.com/W00d5t0ck" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/twitter_16.png') }}" alt="Twitter" /></a>
                     <a href="http://tumblr.w00d5t0ck.info" target="_blank"><img src="{{ asset('bundles/gergelypolonkaifront/images/tumblr_16.png') }}" alt="Tumblr" /></a>
@@ -32,15 +33,24 @@
                     <a href="{{ path('GergelyPolonkaiFrontBundle_blogFeed') }}"><img src="{{ asset('bundles/gergelypolonkaifront/images/rss_16.png') }}" alt="RSS Feed" /></a>
                 </div>
             </div>
+            <div id="content-padding"></div>
+            <div id="menu">
+                <div id="tagcloud-button"><img alt="" src="{{ asset('bundles/gergelypolonkaifront/images/tagcloud.png') }}" /></div>
+                <ul>
+                    <li {% if currentMenu == 'resume' %} class="active"{% endif %}><a href="{{ path('GergelyPolonkaiFrontBundle_resume', { _format: 'html' }) }}">Resume</a></li>
+                    <li {% if currentMenu == 'blog' %} class="active"{% endif %}><a href="{{ path('GergelyPolonkaiFrontBundle_blogListing') }}">Blog</a></li>
+                    <li {% if currentMenu == 'about' %} class="active"{% endif %}><a href="{{ path('GergelyPolonkaiFrontBundle_about') }}">About me</a></li>
+                </ul>
+                <br class="clear" />
+            </div>
+{% if tagCloud|length > 0 %}
+            <div id="tag-cloud">
+{% for cloudItem in tagCloud %}
+                <a href="{{ path('GergelyPolonkaiFrontBundle_blogTagList', { name: cloudItem.name }) }}" class="size{{ cloudItem.size }}">{{ cloudItem.name }}</a>{% if not loop.last %} | {% endif %}
+{% endfor %}
+            </div>
+{% endif %}
             <div id="content">
-                <div id="content-padding"></div>
-                <div id="menu">
-                    <ul>
-                        <li><a href="{{ path('GergelyPolonkaiFrontBundle_about') }}">About me</a></li>
-                        <li><a href="{{ path('GergelyPolonkaiFrontBundle_blogListing') }}">Blog</a></li>
-                        <li><a href="{{ path('GergelyPolonkaiFrontBundle_resume', { _format: 'html' }) }}">Resume</a></li>
-                    </ul>
-                </div>
 {% block content %}{% endblock content %}
             </div>
         </div>
@@ -53,20 +63,26 @@
         <a href="https://github.com/gergelypolonkai" id="github-ribbon" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png" alt="Fork me on GitHub"></a>
         <iframe src="http://githubbadge.appspot.com/badge/gergelypolonkai?s=1&a=0" style="border: 0; height: 142px; width: 200px; overflow: hidden; display: none; position: absolute; top: 100px; left: 100px;" frameBorder="0" id="github-badge"></iframe>
         <script type="text/javascript">
-            $('.at-obfuscation').html('@');
+            $(document).ready(function() {
+                $('.at-obfuscation').html('@');
 
-            $('#github-ribbon').mouseover(function() {
-                $('#github-badge').fadeIn();
-            });
+                $('#tagcloud-button').click(function() {
+                    $('#tag-cloud').toggle('slow');
+                });
 
-            $('#github-ribbon').mouseout(function() {
-                $('#github-badge').fadeOut();
-            });
+                $('#github-ribbon').mouseover(function() {
+                    $('#github-badge').fadeIn();
+                });
 
-            $(document).mousemove(function(e) {
-                $('#github-badge').css({
-                    top: e.pageY + 5,
-                    left: e.pageX + 5
+                $('#github-ribbon').mouseout(function() {
+                    $('#github-badge').fadeOut();
+                });
+
+                $(document).mousemove(function(e) {
+                    $('#github-badge').css({
+                        top: e.pageY + 5,
+                        left: e.pageX + 5
+                    });
                 });
             });
 

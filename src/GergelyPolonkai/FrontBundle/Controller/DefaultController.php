@@ -94,4 +94,13 @@ class DefaultController extends Controller
             'code_chunk' => $codeChunk,
         );
     }
+
+    /**
+     * @Route("/google150e54bda5f96d97.html")
+     * @Template
+     */
+    public function webmasterToolsAction()
+    {
+        return array();
+    }
 }
