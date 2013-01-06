@@ -1,5 +1,7 @@
 {% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
 
+{% block title %} - {{ post.title }}{% endblock %}
+
 {% block content %}
 {% include 'GergelyPolonkaiFrontBundle:Blog:postViewer.html.twig' with {'post': post, 'title_links': false} %}
 {% endblock content %}
