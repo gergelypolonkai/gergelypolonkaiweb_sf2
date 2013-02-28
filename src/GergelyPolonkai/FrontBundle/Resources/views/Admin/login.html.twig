@@ -1,9 +1,9 @@
 {% extends 'GergelyPolonkaiFrontBundle:Default:front_base.html.twig' %}
 
 {% block content %}
-<h3>Bejelentkezés</h3>
+<h3>Login</h3>
 {% if error %}
-    <div id="error">{{ error }}</div>
+    <div id="error">{{ error.message }}</div>
 {% endif %}
 <form method="post" action="{{ path('GergelyPolonkaiFrontBundle_adminLoginCheck') }}">
     <input type="text" name="_username" vale="{{ last_username }}" />
