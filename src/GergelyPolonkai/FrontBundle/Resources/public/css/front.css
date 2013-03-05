@@ -237,3 +237,8 @@ dd p {
 .clear {
     clear: both;
 }
+
+pre {
+    font-family: monospace;
+}
+
