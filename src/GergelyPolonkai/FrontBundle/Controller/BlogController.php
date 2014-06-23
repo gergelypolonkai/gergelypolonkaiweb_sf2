@@ -73,7 +73,11 @@ class BlogController extends Controller
         $query->setParameter(':slug', $slug);
         $query->setParameter(':date1', $date);
         $query->setParameter(':date2', $date2);
-        $post = $query->getOneOrNullResult();
+
+        if (($post = $query->getOneOrNullResult()) === null) {
+            throw $this->createNotFoundException('The post you specified does not exist.');
+        }
+
         $this->get('fpn_tag.tag_manager')->loadTagging($post);
 
         return array(
